@@ -1,0 +1,114 @@
+{
+    "name": "Gumroad",
+    "description": "Sell music, comics, software, books, and films directly to your audience.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1067-gumroad.jpg",
+    "tags": [
+        "api provider",
+        "commerce",
+        "documents",
+        "general data",
+        "have api",
+        "marketplaces",
+        "music",
+        "pedestal",
+        "relative data",
+        "service api",
+        "services",
+        "shopping",
+        "social",
+        "target",
+        "videos",
+        "webhook implementations"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/gumroad\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Gumroad",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1067-gumroad.jpg",
+            "humanURL": "http:\/\/gumroad.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/gumroad.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Application Management",
+            "url": "https:\/\/gumroad.com\/settings\/developer"
+        },
+        {
+            "type": "Base",
+            "url": "https:\/\/api.gumroad.com\/"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.gumroad.com"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/blog.gumroad.com\/rss"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/gumroad"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/gumroad.com\/developers"
+        },
+        {
+            "type": "Email",
+            "url": "partners@gumroad.com"
+        },
+        {
+            "type": "Email",
+            "url": "support@gumroad.com"
+        },
+        {
+            "type": "Embeddable",
+            "url": "https:\/\/gumroad.com\/embed"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/gumroad"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/gumroad.com\/features\/pricing"
+        },
+        {
+            "type": "Privacy",
+            "url": "https:\/\/gumroad.com\/privacy"
+        },
+        {
+            "type": "Terms of Service",
+            "url": "https:\/\/gumroad.com\/terms"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/gumroad"
+        },
+        {
+            "type": "Webhooks",
+            "url": "https:\/\/gumroad.com\/webhooks"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/gumroad.com"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/gumroad.com"
+        }
+    ]
+}
