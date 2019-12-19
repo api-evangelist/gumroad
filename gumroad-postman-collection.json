@@ -1,0 +1,942 @@
+{
+    "id": "2fe64c8e5cc97845de0f6d9eb44d402e",
+    "name": "Gumroad",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "4f92955ea561d37113c24da90a282d19",
+            "name": "Get Products",
+            "url": "httpsapi.gumroad.com\/v2\/products",
+            "description": "Retrieve all of the existing products for the authenticated user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "688cf7df8c2e290b513ea504353c2b39",
+            "name": "Post Products",
+            "url": "httpsapi.gumroad.com\/v2\/products",
+            "description": "Create a new product for the user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "country_available",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "customizable_price",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_filetype",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_permalink",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_product_type",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_receipt",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_summary",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "description",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "max_purchase_count",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "preview_urlnornpreview",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "price",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "require_shipping",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shown_on_profile",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "urlnornfile",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "webhook",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "d733fcc611d22245e805024b48c65525",
+            "name": "Delete Products",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:id",
+            "description": "Permanently delete a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "3ed581f18e6e7d1f5b8e83fffd457dff",
+            "name": "Get Products",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:id",
+            "description": "Retrieve the details of a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "eed7fc3fe97e32d57fb2580257bc627b",
+            "name": "Put Products",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:id",
+            "description": "Edit an existing product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "countries_available",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "customizable_price",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_filetype",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_permalink",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_product_type",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_receipt",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "custom_summary",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "description",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "max_purchase_count",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "preview_urlnornpreview",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "price",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "product",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "require_shipping",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shown_on_profile",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "subscription_duration",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "urlnornfile",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "webhook",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "15ff9b93403743fbda6434d0da8db661",
+            "name": "Put Products Enable",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:id\/enable",
+            "description": "Enable an existing product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "08e8850ea72296007fb28130eb88a9d6",
+            "name": "Get Products Custom Fields",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/custom_fields",
+            "description": "Retrieve all of the existing custom fields for a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "2fcef97de4c33e07eae81ae9fe4aab78",
+            "name": "Post Products Custom Fields",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/custom_fields",
+            "description": "Create a new custom field for a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "required",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "variant",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "09ab581b025d4d3fa8c6ba5ecf6f61e7",
+            "name": "Put Products Custom Fields Name",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/custom_fields\/:name",
+            "description": "Edit an existing products custom field.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "required",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "variant",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "a357a8d7bf36958ddec3bc9c164b7aca",
+            "name": "Get Products Offer Codes",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/offer_codes",
+            "description": "Retrieve all of the existing offer codes for a product. Either amount_cents or percent_off will be returned depending if the offer code is a fixed amount off or a percentage off. A universal offer code is one that applies to all products.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "ea92dd313ee03d240e2f9f4b0abe7c99",
+            "name": "Post Products Offer Codes",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/offer_codes",
+            "description": "Create a new offer code for a product. Default offer code is in cents. A universal offer code is one that applies to all products.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "amount_off",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "max_purchase_count",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offer_code",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offer_type",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "universal",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "2f054e4edd45308d5aedc0192d48dde9",
+            "name": "Get Products Offer Codes",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/offer_codes\/:id",
+            "description": "Retrieve the details of a specific offer code of a product",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "0e8ee7f0ac4f7103195bca42879a9952",
+            "name": "Put Products Offer Codes",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/offer_codes\/:id",
+            "description": "Edit an existing products offer code.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "max_purchase_count",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offer_code",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "40eaf2cb49aa75dec1cd11dacf397e5c",
+            "name": "Get Products Variant Categories",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories",
+            "description": "Retrieve all of the existing variant categories of a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "efb511aa9d274eae8145f4c046cd1983",
+            "name": "Post Products Variant Categories",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories",
+            "description": "Create a new variant category on a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "variant_category",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "28ebd0f41c0edadc76f22aa033b1c487",
+            "name": "Delete Products Variant Categories",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:id",
+            "description": "Permanently delete a variant category of a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "48f60450f184bad192591d982455bbaf",
+            "name": "Get Products Variant Categories",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:id",
+            "description": "Retrieve the details of a variant category of a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "874cf10673166a5b1e549e7fc92a536f",
+            "name": "Put Products Variant Categories",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:id",
+            "description": "Edit a variant category of an existing product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "title",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "variant_category",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "9271ce2904fbdd666e3a7e979ae34e93",
+            "name": "Post Products Variant Categories Variant Category Variants",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:variant_category_id\/variants",
+            "description": "Create a new variant of a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "max_purchase_count",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "price_difference_cents",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "variant",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "858986c093b62910cc73f199c70e6225",
+            "name": "Delete Products Variant Categories Variant Category Variants",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:variant_category_id\/variants\/:id",
+            "description": "Permanently delete a variant of a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "0ce92b30bf5abe4054dcb8449ae35610",
+            "name": "Get Products Variant Categories Variant Category Variants",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:variant_category_id\/variants\/:id",
+            "description": "Retrieve the details of a variant of a product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        },
+        {
+            "id": "46a8117d7322dbde60a3321db04df7b7",
+            "name": "Put Products Variant Categories Variant Category Variants",
+            "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:variant_category_id\/variants\/:id",
+            "description": "Edit a variant of an existing product.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "max_purchase_count",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "price_difference_cents",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "variant",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "rawModeData": ""
+        }
+    ]
+}
