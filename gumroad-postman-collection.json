@@ -1,5 +1,5 @@
 {
-    "id": "2fe64c8e5cc97845de0f6d9eb44d402e",
+    "id": "1e9f319f7c9a4286384296b54016f20a",
     "name": "Gumroad",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "4f92955ea561d37113c24da90a282d19",
+            "id": "718b907a2a42503b8debf476e51a79f0",
             "name": "Get Products",
             "url": "httpsapi.gumroad.com\/v2\/products",
             "description": "Retrieve all of the existing products for the authenticated user.",
@@ -29,11 +29,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "688cf7df8c2e290b513ea504353c2b39",
+            "id": "22b06dfffc65ac51ba9ee071667804f3",
             "name": "Post Products",
             "url": "httpsapi.gumroad.com\/v2\/products",
             "description": "Create a new product for the user.",
@@ -165,11 +165,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "d733fcc611d22245e805024b48c65525",
+            "id": "fa87198e50fcea254d370c8805eb742a",
             "name": "Delete Products",
             "url": "httpsapi.gumroad.com\/v2\/products\/:id",
             "description": "Permanently delete a product.",
@@ -188,11 +188,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "3ed581f18e6e7d1f5b8e83fffd457dff",
+            "id": "30865f034ed7c7305c39692389d0bb02",
             "name": "Get Products",
             "url": "httpsapi.gumroad.com\/v2\/products\/:id",
             "description": "Retrieve the details of a product.",
@@ -211,11 +211,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "eed7fc3fe97e32d57fb2580257bc627b",
+            "id": "c167da556baacca2834f437e6d894676",
             "name": "Put Products",
             "url": "httpsapi.gumroad.com\/v2\/products\/:id",
             "description": "Edit an existing product.",
@@ -361,11 +361,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "15ff9b93403743fbda6434d0da8db661",
+            "id": "424b6ff4e076df90348ca219597aa495",
             "name": "Put Products Enable",
             "url": "httpsapi.gumroad.com\/v2\/products\/:id\/enable",
             "description": "Enable an existing product.",
@@ -384,11 +384,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "08e8850ea72296007fb28130eb88a9d6",
+            "id": "51633bca21c31fde3645b4a534f8629c",
             "name": "Get Products Custom Fields",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/custom_fields",
             "description": "Retrieve all of the existing custom fields for a product.",
@@ -407,11 +407,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "2fcef97de4c33e07eae81ae9fe4aab78",
+            "id": "522816e9d500d83728604e90ef4601b2",
             "name": "Post Products Custom Fields",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/custom_fields",
             "description": "Create a new custom field for a product.",
@@ -452,11 +452,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "09ab581b025d4d3fa8c6ba5ecf6f61e7",
+            "id": "def8a69b80bb9fb95beb199afaf0be79",
             "name": "Put Products Custom Fields Name",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/custom_fields\/:name",
             "description": "Edit an existing products custom field.",
@@ -490,11 +490,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "a357a8d7bf36958ddec3bc9c164b7aca",
+            "id": "d4d70284fcbab6e4e028e9f601f401d3",
             "name": "Get Products Offer Codes",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/offer_codes",
             "description": "Retrieve all of the existing offer codes for a product. Either amount_cents or percent_off will be returned depending if the offer code is a fixed amount off or a percentage off. A universal offer code is one that applies to all products.",
@@ -513,11 +513,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "ea92dd313ee03d240e2f9f4b0abe7c99",
+            "id": "bb7a775df7e77afac674f3b85ad6820f",
             "name": "Post Products Offer Codes",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/offer_codes",
             "description": "Create a new offer code for a product. Default offer code is in cents. A universal offer code is one that applies to all products.",
@@ -579,11 +579,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "2f054e4edd45308d5aedc0192d48dde9",
+            "id": "79e1ea83367980f30ceedfaa5bb3899a",
             "name": "Get Products Offer Codes",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/offer_codes\/:id",
             "description": "Retrieve the details of a specific offer code of a product",
@@ -602,11 +602,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "0e8ee7f0ac4f7103195bca42879a9952",
+            "id": "4508c2f726dbe2d08387ebc4cb56b089",
             "name": "Put Products Offer Codes",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/offer_codes\/:id",
             "description": "Edit an existing products offer code.",
@@ -640,11 +640,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "40eaf2cb49aa75dec1cd11dacf397e5c",
+            "id": "add75b6e4c460a045f93bd2cfdd62e59",
             "name": "Get Products Variant Categories",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories",
             "description": "Retrieve all of the existing variant categories of a product.",
@@ -663,11 +663,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "efb511aa9d274eae8145f4c046cd1983",
+            "id": "15632aad432dbeb27540ce21893d14a7",
             "name": "Post Products Variant Categories",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories",
             "description": "Create a new variant category on a product.",
@@ -701,11 +701,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "28ebd0f41c0edadc76f22aa033b1c487",
+            "id": "a3cb62a3afb1faf5caea6b40be3b2ee5",
             "name": "Delete Products Variant Categories",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:id",
             "description": "Permanently delete a variant category of a product.",
@@ -724,11 +724,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "48f60450f184bad192591d982455bbaf",
+            "id": "30f5956aa21c1941176c06a371cff814",
             "name": "Get Products Variant Categories",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:id",
             "description": "Retrieve the details of a variant category of a product.",
@@ -747,11 +747,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "874cf10673166a5b1e549e7fc92a536f",
+            "id": "a0748ea72a1bc4f7c989065781b1de58",
             "name": "Put Products Variant Categories",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:id",
             "description": "Edit a variant category of an existing product.",
@@ -785,11 +785,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "9271ce2904fbdd666e3a7e979ae34e93",
+            "id": "6c23d0ba189620a2da5a6ea5f232a836",
             "name": "Post Products Variant Categories Variant Category Variants",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:variant_category_id\/variants",
             "description": "Create a new variant of a product.",
@@ -837,11 +837,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "858986c093b62910cc73f199c70e6225",
+            "id": "ee17b06e0121047c8fc9658c83cc97f1",
             "name": "Delete Products Variant Categories Variant Category Variants",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:variant_category_id\/variants\/:id",
             "description": "Permanently delete a variant of a product.",
@@ -860,11 +860,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "0ce92b30bf5abe4054dcb8449ae35610",
+            "id": "62879bf7599fdac16fc84cfcb35d1d91",
             "name": "Get Products Variant Categories Variant Category Variants",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:variant_category_id\/variants\/:id",
             "description": "Retrieve the details of a variant of a product.",
@@ -883,11 +883,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         },
         {
-            "id": "46a8117d7322dbde60a3321db04df7b7",
+            "id": "c68a5089f6a4e0f05c91aeaa93ba6892",
             "name": "Put Products Variant Categories Variant Category Variants",
             "url": "httpsapi.gumroad.com\/v2\/products\/:product_id\/variant_categories\/:variant_category_id\/variants\/:id",
             "description": "Edit a variant of an existing product.",
@@ -935,7 +935,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "2fe64c8e5cc97845de0f6d9eb44d402e",
+            "collectionId": "1e9f319f7c9a4286384296b54016f20a",
             "rawModeData": ""
         }
     ]
