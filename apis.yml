@@ -58,13 +58,13 @@ common:
     url: https://gumroad.com/help
   - type: Pricing
     url: https://gumroad.com/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://gumroad.com/signup
   - type: Discover
     url: https://gumroad.com/discover
   - type: Support
     url: https://gumroad.com/help
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/gumroad
 maintainers:
   - FN: Kin Lane
