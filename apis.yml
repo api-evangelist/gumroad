@@ -50,6 +50,8 @@ apis:
       - type: OAuth Applications
         url: https://gumroad.com/oauth/applications
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/gumroad
   - type: Website
     url: https://gumroad.com
   - type: Documentation
