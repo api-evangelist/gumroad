@@ -21,7 +21,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/gumroad/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-11'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
   - aid: gumroad:v2-api
@@ -49,6 +49,9 @@ apis:
         url: https://gumroad.com/help/article/280-create-application-api
       - type: OAuth Applications
         url: https://gumroad.com/oauth/applications
+      - type: AsyncAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/gumroad/refs/heads/main/asyncapi.yml
 common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/gumroad

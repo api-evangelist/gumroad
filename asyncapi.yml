@@ -1,0 +1,648 @@
+asyncapi: 2.6.0
+info:
+  title: Gumroad Webhooks (Resource Subscriptions) AsyncAPI
+  version: 1.0.0
+  description: >-
+    AsyncAPI 2.6 description of Gumroad's webhook surface, exposed through the
+    Gumroad v2 REST API as "resource subscriptions". A seller (or an OAuth
+    application acting on a seller's behalf) registers a `post_url` and a
+    `resource_name`, and Gumroad delivers an HTTP POST notification to that URL
+    whenever the named event occurs.
+
+
+    Delivery semantics (documented at https://gumroad.com/ping and
+    https://gumroad.com/api):
+
+      * Transport: HTTP POST to the subscriber-supplied `post_url`.
+      * Content type: `application/x-www-form-urlencoded`.
+      * Retry policy: if the endpoint does not return a 200 HTTP status code,
+        the POST is retried once an hour for up to 3 hours.
+      * Gumroad recommends HTTPS endpoints for security.
+
+    Resource subscriptions are managed through three endpoints on the v2 REST
+    API: `PUT /v2/resource_subscriptions`, `GET /v2/resource_subscriptions`,
+    and `DELETE /v2/resource_subscriptions/:id`. The eight supported
+    `resource_name` values are: `sale`, `refund`, `dispute`, `dispute_won`,
+    `cancellation`, `subscription_updated`, `subscription_ended`, and
+    `subscription_restarted`.
+  contact:
+    name: API Evangelist
+    url: https://apievangelist.com
+    email: kin@apievangelist.com
+  license:
+    name: Documentation copyright Gumroad, Inc.
+    url: https://gumroad.com/api
+  x-source-documentation:
+    - https://gumroad.com/api
+    - https://gumroad.com/ping
+
+defaultContentType: application/x-www-form-urlencoded
+
+servers:
+  subscriber:
+    url: '{post_url}'
+    protocol: https
+    description: >-
+      The seller-supplied HTTPS endpoint registered via `post_url` on a
+      resource subscription. Gumroad POSTs the event payload here using
+      `application/x-www-form-urlencoded`.
+    variables:
+      post_url:
+        default: https://example.com/gumroad-webhook
+        description: The subscriber's webhook receiver URL.
+
+channels:
+  sale:
+    description: >-
+      Sale notifications. When subscribed to the `sale` resource, the
+      subscriber is notified of the user's sales with an HTTP POST to the
+      registered `post_url`. The payload format is the one documented on the
+      Gumroad Ping page.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    subscribe:
+      operationId: onSale
+      summary: A new sale was completed.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/SaleEvent'
+
+  refund:
+    description: >-
+      Refund notifications. When subscribed to the `refund` resource, the
+      subscriber is notified of refunds to the user's sales with an HTTP POST
+      to the registered `post_url`. The payload format is the same as the
+      Gumroad Ping (sale) payload.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    subscribe:
+      operationId: onRefund
+      summary: A sale was refunded.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/RefundEvent'
+
+  dispute:
+    description: >-
+      Dispute notifications. When subscribed to the `dispute` resource, the
+      subscriber is notified of disputes raised against the user's sales with
+      an HTTP POST to the registered `post_url`. The payload format is the one
+      documented on the Gumroad Ping page.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    subscribe:
+      operationId: onDispute
+      summary: A dispute was raised against a sale.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/DisputeEvent'
+
+  dispute_won:
+    description: >-
+      Dispute-won notifications. When subscribed to the `dispute_won`
+      resource, the subscriber is notified of sale disputes that the user has
+      won with an HTTP POST to the registered `post_url`. The payload format
+      is the one documented on the Gumroad Ping page.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    subscribe:
+      operationId: onDisputeWon
+      summary: A previously raised dispute was won by the seller.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/DisputeWonEvent'
+
+  cancellation:
+    description: >-
+      Cancellation notifications. When subscribed to the `cancellation`
+      resource, the subscriber is notified of cancellations of the user's
+      subscribers with an HTTP POST to the registered `post_url`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    subscribe:
+      operationId: onCancellation
+      summary: A subscription has been cancelled.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/CancellationEvent'
+
+  subscription_updated:
+    description: >-
+      Subscription update notifications. When subscribed to the
+      `subscription_updated` resource, the subscriber is notified when
+      subscriptions to the user's products have been upgraded or downgraded
+      with an HTTP POST to the registered `post_url`. A subscription is
+      "upgraded" when the subscriber switches to an equally or more expensive
+      tier and/or subscription duration. It is "downgraded" when the
+      subscriber switches to a less expensive tier and/or subscription
+      duration. In the case of a downgrade, this change will take effect at
+      the end of the current billing period. (Note: this currently applies
+      only to tiered membership products, not to all subscription products.)
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    subscribe:
+      operationId: onSubscriptionUpdated
+      summary: A subscription was upgraded or downgraded.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/SubscriptionUpdatedEvent'
+
+  subscription_ended:
+    description: >-
+      Subscription ended notifications. When subscribed to the
+      `subscription_ended` resource, the subscriber is notified when
+      subscriptions to the user's products have ended with an HTTP POST to
+      the registered `post_url`. These events include termination of a
+      subscription due to: failed payment(s); cancellation; or a subscription
+      of fixed duration ending. Notifications are sent at the time the
+      subscription has officially ended, not, for example, at the time
+      cancellation is requested.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    subscribe:
+      operationId: onSubscriptionEnded
+      summary: A subscription has officially ended.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/SubscriptionEndedEvent'
+
+  subscription_restarted:
+    description: >-
+      Subscription restarted notifications. When subscribed to the
+      `subscription_restarted` resource, the subscriber is notified when
+      subscriptions to the user's products have been restarted with an HTTP
+      POST to the registered `post_url`. A subscription is "restarted" when
+      the subscriber restarts their subscription after previously terminating
+      it.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    subscribe:
+      operationId: onSubscriptionRestarted
+      summary: A subscription was restarted by the subscriber.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/SubscriptionRestartedEvent'
+
+components:
+  messages:
+    SaleEvent:
+      name: SaleEvent
+      title: Gumroad sale ping
+      summary: A sale event delivered in Gumroad Ping format.
+      contentType: application/x-www-form-urlencoded
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/PingSalePayload'
+
+    RefundEvent:
+      name: RefundEvent
+      title: Gumroad refund ping
+      summary: A refund event delivered in Gumroad Ping (sale) format.
+      contentType: application/x-www-form-urlencoded
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/PingSalePayload'
+
+    DisputeEvent:
+      name: DisputeEvent
+      title: Gumroad dispute ping
+      summary: A dispute event delivered in Gumroad Ping (sale) format.
+      contentType: application/x-www-form-urlencoded
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/PingSalePayload'
+
+    DisputeWonEvent:
+      name: DisputeWonEvent
+      title: Gumroad dispute-won ping
+      summary: A dispute-won event delivered in Gumroad Ping (sale) format.
+      contentType: application/x-www-form-urlencoded
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/PingSalePayload'
+
+    CancellationEvent:
+      name: CancellationEvent
+      title: Gumroad subscription cancellation ping
+      summary: A subscription cancellation notification.
+      contentType: application/x-www-form-urlencoded
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/CancellationPayload'
+
+    SubscriptionUpdatedEvent:
+      name: SubscriptionUpdatedEvent
+      title: Gumroad subscription updated ping
+      summary: A subscription upgrade or downgrade notification.
+      contentType: application/x-www-form-urlencoded
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/SubscriptionUpdatedPayload'
+      examples:
+        - name: subscriptionUpgradeExample
+          summary: Example payload taken from the Gumroad API documentation.
+          payload:
+            type: upgrade
+            effective_as_of: '2021-02-23T16:31:44Z'
+            old_plan:
+              tier:
+                id: G_-mnBf9b1j9A7a4ub4nFQ==
+                name: Basic tier
+              recurrence: monthly
+              price_cents: '1000'
+              quantity: 1
+            new_plan:
+              tier:
+                id: G_-mnBf9b1j9A7a4ub4nFQ==
+                name: Basic tier
+              recurrence: yearly
+              price_cents: '12000'
+              quantity: 2
+
+    SubscriptionEndedEvent:
+      name: SubscriptionEndedEvent
+      title: Gumroad subscription ended ping
+      summary: A subscription-ended notification.
+      contentType: application/x-www-form-urlencoded
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/SubscriptionEndedPayload'
+
+    SubscriptionRestartedEvent:
+      name: SubscriptionRestartedEvent
+      title: Gumroad subscription restarted ping
+      summary: A subscription-restarted notification.
+      contentType: application/x-www-form-urlencoded
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      payload:
+        $ref: '#/components/schemas/SubscriptionRestartedPayload'
+
+  schemas:
+    PingSalePayload:
+      type: object
+      description: >-
+        The HTTP POST body documented on https://gumroad.com/ping. The same
+        format is reused for `sale`, `refund`, `dispute`, and `dispute_won`
+        resource subscriptions. The body is delivered as
+        `application/x-www-form-urlencoded`, so nested values (e.g.
+        `variants`, `custom_fields`, `url_params`, `shipping_information`,
+        `card`) are sent as bracketed form-encoded keys.
+      properties:
+        sale_id:
+          type: string
+          description: The id of the sale.
+        sale_timestamp:
+          type: string
+          description: The timestamp of the sale.
+        order_number:
+          type: integer
+          description: Numeric version of `sale_id`.
+        seller_id:
+          type: string
+        product_id:
+          type: string
+        product_permalink:
+          type: string
+        short_product_id:
+          type: string
+          description: Unique identifier for the product.
+        product_name:
+          type: string
+        email:
+          type: string
+          description: The email of the buyer.
+        url_params:
+          type: object
+          description: >-
+            URL parameters passed through the product URL. Example:
+            `{"source_url":"https%3A%2F%2Fgumroad.com%2Fwidgets","campaignid":"c123","userid":"456","version":"1.4.5"}`.
+          additionalProperties:
+            type: string
+        full_name:
+          type: string
+          description: If present, the name of the buyer.
+        purchaser_id:
+          type: string
+          description: The id of the purchaser's Gumroad account, if the purchaser has one.
+        subscription_id:
+          type: string
+          description: The id of the subscription, if the purchase is part of a subscription.
+        ip_country:
+          type: string
+          description: If present, the country of the buyer's IP address.
+        price:
+          type: integer
+          description: The price paid, in USD cents.
+        recurrence:
+          type: string
+          description: >-
+            If present, the recurrence of the payment option chosen by the
+            buyer such as `monthly`, `yearly`, etc.
+        variants:
+          type: object
+          description: >-
+            If present, a dictionary of selected variant options, e.g.
+            `{"size":"large","color":"red"}`.
+          additionalProperties:
+            type: string
+        offer_code:
+          type: string
+          description: If present, the offer code applied to the sale.
+        test:
+          type: boolean
+          description: True if the seller is buying their own product for testing purposes.
+        custom_fields:
+          type: object
+          description: >-
+            If present, a dictionary of custom fields, e.g.
+            `{"name":"john smith","spouse name":"jane smith"}`.
+          additionalProperties:
+            type: string
+        shipping_information:
+          type: object
+          description: If present, a dictionary describing shipping information.
+        is_recurring_charge:
+          type: boolean
+          description: If relevant, true when this delivery is a recurring charge.
+        is_preorder_authorization:
+          type: boolean
+          description: If relevant, true when this delivery is a pre-order authorization.
+        license_key:
+          type: string
+          description: Present if licenses are enabled for the product.
+        quantity:
+          type: integer
+        shipping_rate:
+          type: integer
+          description: >-
+            The shipping paid, in USD cents, if the product is a physical
+            product.
+        affiliate:
+          type: string
+          description: If present, the affiliate's email address.
+        affiliate_credit_amount_cents:
+          type: integer
+          description: If present, the amount paid to the affiliate in USD cents.
+        is_gift_receiver_purchase:
+          type: boolean
+          description: True if a gift, false otherwise.
+        gifter_email:
+          type: string
+          description: Email address of the gifter.
+        gift_price:
+          type: integer
+          description: The price paid by the gifter, in USD cents.
+        refunded:
+          type: boolean
+          description: True if this sale has been refunded, false otherwise.
+        discover_fee_charged:
+          type: boolean
+          description: >-
+            True if this sale was subject to Gumroad Discover fees, false
+            otherwise.
+        can_contact:
+          type: boolean
+        referrer:
+          type: string
+        gumroad_fee:
+          type: integer
+          description: Gumroad's fee, in USD cents.
+        card:
+          type: object
+          description: Payment instrument details.
+
+    SubscriptionCommonPayload:
+      type: object
+      description: >-
+        Parameters common to every subscription-related resource subscription
+        (`cancellation`, `subscription_updated`, `subscription_ended`, and
+        `subscription_restarted`).
+      properties:
+        subscription_id:
+          type: string
+          description: Id of the subscription.
+        product_id:
+          type: string
+          description: Id of the product.
+        product_name:
+          type: string
+          description: Name of the product.
+        user_id:
+          type: string
+          description: User id of the subscriber.
+        user_email:
+          type: string
+          description: Email address of the subscriber.
+        purchase_ids:
+          type: array
+          description: Array of charge ids belonging to this subscription.
+          items:
+            type: string
+        created_at:
+          type: string
+          description: Timestamp when subscription was created.
+        charge_occurrence_count:
+          type: integer
+          description: Number of charges made for this subscription.
+        recurrence:
+          type: string
+          description: >-
+            Subscription duration. One of `monthly`, `quarterly`,
+            `biannually`, `yearly`, `every_two_years`.
+          enum:
+            - monthly
+            - quarterly
+            - biannually
+            - yearly
+            - every_two_years
+        free_trial_ends_at:
+          type: string
+          description: >-
+            Timestamp when the free trial ends, if a free trial is enabled
+            for the membership.
+        custom_fields:
+          type: object
+          description: Custom fields from the original purchase.
+        license_key:
+          type: string
+          description: License key from the original purchase.
+
+    CancellationPayload:
+      allOf:
+        - $ref: '#/components/schemas/SubscriptionCommonPayload'
+        - type: object
+          description: Fields specific to the `cancellation` resource.
+          properties:
+            cancelled:
+              type: boolean
+              description: True if subscription has been cancelled, otherwise false.
+            cancelled_at:
+              type: string
+              description: Timestamp at which the subscription will be cancelled.
+            cancelled_by_admin:
+              type: boolean
+              description: >-
+                True if the subscription was cancelled by an admin; otherwise
+                not present.
+            cancelled_by_buyer:
+              type: boolean
+              description: >-
+                True if the subscription was cancelled by the buyer;
+                otherwise not present.
+            cancelled_by_seller:
+              type: boolean
+              description: >-
+                True if the subscription was cancelled by the seller;
+                otherwise not present.
+            cancelled_due_to_payment_failures:
+              type: boolean
+              description: >-
+                True if the subscription was cancelled automatically because
+                of payment failure; otherwise not present.
+
+    SubscriptionPlan:
+      type: object
+      description: >-
+        Description of a subscription's tier, duration, price, and quantity
+        either before (`old_plan`) or after (`new_plan`) an upgrade or
+        downgrade.
+      properties:
+        tier:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the tier.
+            name:
+              type: string
+              description: Display name of the tier.
+        recurrence:
+          type: string
+          description: Subscription duration of this plan.
+        price_cents:
+          type: string
+          description: Price of the plan, in cents, expressed as a string.
+        quantity:
+          type: integer
+          description: Quantity associated with the plan.
+
+    SubscriptionUpdatedPayload:
+      allOf:
+        - $ref: '#/components/schemas/SubscriptionCommonPayload'
+        - type: object
+          description: Fields specific to the `subscription_updated` resource.
+          properties:
+            type:
+              type: string
+              description: Either `upgrade` or `downgrade`.
+              enum:
+                - upgrade
+                - downgrade
+            effective_as_of:
+              type: string
+              description: Timestamp at which the change went or will go into effect.
+            old_plan:
+              $ref: '#/components/schemas/SubscriptionPlan'
+            new_plan:
+              $ref: '#/components/schemas/SubscriptionPlan'
+
+    SubscriptionEndedPayload:
+      allOf:
+        - $ref: '#/components/schemas/SubscriptionCommonPayload'
+        - type: object
+          description: Fields specific to the `subscription_ended` resource.
+          properties:
+            ended_at:
+              type: string
+              description: Timestamp at which the subscription ended.
+            ended_reason:
+              type: string
+              description: >-
+                The reason for the subscription ending. One of `cancelled`,
+                `failed_payment`, or `fixed_subscription_period_ended`.
+              enum:
+                - cancelled
+                - failed_payment
+                - fixed_subscription_period_ended
+
+    SubscriptionRestartedPayload:
+      allOf:
+        - $ref: '#/components/schemas/SubscriptionCommonPayload'
+        - type: object
+          description: Fields specific to the `subscription_restarted` resource.
+          properties:
+            restarted_at:
+              type: string
+              description: Timestamp at which the subscription was restarted.
