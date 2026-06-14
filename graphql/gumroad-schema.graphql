@@ -1,0 +1,955 @@
+"""
+Gumroad GraphQL Schema
+Conceptual schema derived from the Gumroad v2 REST API.
+REST API documentation: https://app.gumroad.com/api
+Base URL: https://api.gumroad.com/v2
+Authentication: OAuth 2.0 Bearer tokens
+"""
+
+# ─── Enumerations ────────────────────────────────────────────────────────────
+
+enum ProductType {
+  DIGITAL
+  PHYSICAL
+  SUBSCRIPTION
+  BUNDLE
+}
+
+enum ProductStatus {
+  PUBLISHED
+  UNPUBLISHED
+  DELETED
+}
+
+enum DiscountType {
+  PERCENT
+  CENTS
+}
+
+enum CustomFieldType {
+  TEXT
+  CHECKBOX
+  TERMS
+}
+
+enum PurchaseStatus {
+  SUCCESSFUL
+  FAILED
+  REFUNDED
+  CHARGEDBACK
+}
+
+enum LicenseType {
+  SINGLE
+  MULTI_SEAT
+  SITE
+}
+
+enum SubscriberStatus {
+  ALIVE
+  PENDING_CANCELLATION
+  PENDING_FAILURE
+  FAILED_PAYMENT
+  FIXED_SUBSCRIPTION_PERIOD_ENDED
+  CANCELLED
+}
+
+enum PostType {
+  PUBLISHED
+  DRAFT
+  SCHEDULED
+}
+
+# ─── Scalar Types ─────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar URL
+scalar Currency
+scalar JSON
+
+# ─── Product Domain ───────────────────────────────────────────────────────────
+
+"""
+A digital or physical item listed for sale on Gumroad.
+"""
+type Product {
+  id: ID!
+  name: String!
+  description: String
+  type: ProductType!
+  status: ProductStatus!
+  price: ProductPrice!
+  content: ProductContent
+  details: ProductDetails
+  variants: [Variant!]
+  offerCodes: [OfferCode!]
+  customFields: [CustomField!]
+  sales: [Sale!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  permalink: String!
+  url: URL
+  shortUrl: URL
+  previewUrl: URL
+  thumbnailUrl: URL
+  published: Boolean!
+  requireShipping: Boolean!
+  customSummary: String
+  customReceipt: String
+  customPermalink: String
+  customRedirectURL: URL
+  allowedQuantity: Int
+  showSalesCount: Boolean
+  fileInfo: FileDetails
+  tags: [String!]
+}
+
+"""
+Extended metadata for a product.
+"""
+type ProductDetails {
+  id: ID!
+  productId: ID!
+  description: String
+  coverImageUrl: URL
+  previewUrl: URL
+  tags: [String!]
+  salesCount: Int
+  revenueAmount: Float
+  currency: Currency
+  formattedPrice: String
+  isSalesCountShown: Boolean
+  publishedAt: DateTime
+}
+
+"""
+Pricing structure for a product.
+"""
+type ProductPrice {
+  amount: Float!
+  currency: Currency!
+  suggestedPrice: Float
+  payWhatYouWant: Boolean!
+  minimumPrice: Float
+  formattedAmount: String
+}
+
+"""
+The downloadable or streamable content attached to a product.
+"""
+type ProductContent {
+  id: ID!
+  productId: ID!
+  files: [DigitalFile!]
+  streamUrl: URL
+  downloadUrl: URL
+  contentLength: Int
+  contentType: String
+}
+
+"""
+A file asset attached to a product.
+"""
+type DigitalFile {
+  id: ID!
+  productId: ID!
+  details: FileDetails!
+  downloadUrl: URL
+  streamUrl: URL
+  isReadme: Boolean
+}
+
+"""
+Detailed metadata for a digital file.
+"""
+type FileDetails {
+  id: ID!
+  name: String!
+  extension: String
+  size: Int
+  mimeType: String
+  uploadedAt: DateTime
+  isProcessed: Boolean
+  processingErrorMessage: String
+}
+
+# ─── Variant Domain ───────────────────────────────────────────────────────────
+
+"""
+A named grouping of options for a product (e.g., "Format", "Color").
+"""
+type Variant {
+  id: ID!
+  productId: ID!
+  title: String!
+  details: VariantDetails
+  options: [VariantOption!]!
+}
+
+"""
+Extended metadata for a variant.
+"""
+type VariantDetails {
+  id: ID!
+  variantId: ID!
+  description: String
+  displayOrder: Int
+  defaultOptionId: ID
+}
+
+"""
+A single selectable option within a variant (e.g., "PDF", "Large").
+"""
+type VariantOption {
+  id: ID!
+  variantId: ID!
+  name: String!
+  details: VariantOptionDetails
+}
+
+"""
+Pricing delta and availability data for a variant option.
+"""
+type VariantOptionDetails {
+  id: ID!
+  optionId: ID!
+  priceDifferenceInCents: Int
+  isPayWhatYouWant: Boolean
+  recurrenceAmount: Float
+  maxPurchaseCount: Int
+  url: URL
+}
+
+# ─── Offer and Discount Domain ────────────────────────────────────────────────
+
+"""
+A discount code applicable to one or more products.
+"""
+type OfferCode {
+  id: ID!
+  productId: ID!
+  name: String!
+  code: String!
+  discountType: DiscountType!
+  amount: Float!
+  details: OfferCodeDetails
+  universal: Boolean!
+}
+
+"""
+Extended data for an offer code.
+"""
+type OfferCodeDetails {
+  id: ID!
+  offerCodeId: ID!
+  maxPurchaseCount: Int
+  timesUsed: Int
+  validFrom: DateTime
+  validTo: DateTime
+  minimumQuantity: Int
+  currencyCode: Currency
+}
+
+# ─── Custom Fields Domain ─────────────────────────────────────────────────────
+
+"""
+A creator-defined field shown at checkout to collect buyer information.
+"""
+type CustomField {
+  id: ID!
+  productId: ID!
+  name: String!
+  type: CustomFieldType!
+  required: Boolean!
+}
+
+# ─── Purchase Domain ──────────────────────────────────────────────────────────
+
+"""
+A completed transaction in which a customer acquires a product.
+"""
+type Purchase {
+  id: ID!
+  productId: ID!
+  email: String!
+  status: PurchaseStatus!
+  details: PurchaseDetails
+  price: Float!
+  currency: Currency!
+  quantity: Int!
+  license: License
+  refund: Refund
+  createdAt: DateTime!
+}
+
+"""
+Extended metadata for a purchase.
+"""
+type PurchaseDetails {
+  id: ID!
+  purchaseId: ID!
+  ipAddress: String
+  referrer: String
+  country: String
+  countryIsoCode: String
+  state: String
+  zipCode: String
+  taxAmount: Float
+  vatAmount: Float
+  isRecurringBilling: Boolean
+  variantOptionId: ID
+  customFields: JSON
+  recurrenceAmount: Float
+  affiliateId: ID
+  affiliateCredit: Float
+  giftSenderEmail: String
+  isGifted: Boolean
+}
+
+# ─── License Domain ───────────────────────────────────────────────────────────
+
+"""
+A license record tied to a purchase, governing product usage rights.
+"""
+type License {
+  id: ID!
+  purchaseId: ID!
+  productId: ID!
+  licenseKey: LicenseKey!
+  type: LicenseType!
+  details: LicenseDetails
+  enabled: Boolean!
+  createdAt: DateTime!
+}
+
+"""
+Extended data for a license.
+"""
+type LicenseDetails {
+  id: ID!
+  licenseId: ID!
+  activationCount: Int
+  maxActivations: Int
+  purchaseCount: Int
+  productName: String
+  productPermalink: String
+  email: String
+}
+
+"""
+The alphanumeric key string associated with a license.
+"""
+type LicenseKey {
+  id: ID!
+  licenseId: ID!
+  key: String!
+  enabled: Boolean!
+}
+
+# ─── Subscriber and Subscription Domain ──────────────────────────────────────
+
+"""
+A customer enrolled in a recurring membership or subscription product.
+"""
+type Subscriber {
+  id: ID!
+  productId: ID!
+  purchaseId: ID!
+  email: String!
+  status: SubscriberStatus!
+  details: SubscriberDetails
+  subscription: Subscription
+  createdAt: DateTime!
+}
+
+"""
+Extended data for a subscriber.
+"""
+type SubscriberDetails {
+  id: ID!
+  subscriberId: ID!
+  chargeOccurrenceCount: Int
+  failedChargeCount: Int
+  endedAt: DateTime
+  cancelledAt: DateTime
+  freeTrialEndsAt: DateTime
+  planId: ID
+}
+
+"""
+A recurring billing arrangement attached to a membership product.
+"""
+type Subscription {
+  id: ID!
+  subscriberId: ID!
+  productId: ID!
+  details: SubscriptionDetails
+  active: Boolean!
+  createdAt: DateTime!
+}
+
+"""
+Billing cycle, amount, and renewal date for a subscription.
+"""
+type SubscriptionDetails {
+  id: ID!
+  subscriptionId: ID!
+  billingCycleAnchor: DateTime
+  currentPeriodStart: DateTime
+  currentPeriodEnd: DateTime
+  nextBillingDate: DateTime
+  amount: Float
+  currency: Currency
+  intervalUnit: String
+  intervalCount: Int
+}
+
+# ─── Membership Domain ────────────────────────────────────────────────────────
+
+"""
+A product type offering recurring access to content or community.
+"""
+type Membership {
+  id: ID!
+  productId: ID!
+  name: String!
+  details: MembershipDetails
+  tiers: [MembershipTier!]
+  subscribers: [Subscriber!]
+  createdAt: DateTime!
+}
+
+"""
+Extended metadata for a membership.
+"""
+type MembershipDetails {
+  id: ID!
+  membershipId: ID!
+  benefitDescription: String
+  accessUrl: URL
+  publishedAt: DateTime
+  coverImageUrl: URL
+}
+
+"""
+A level within a membership product (e.g., "Basic", "Pro").
+"""
+type MembershipTier {
+  id: ID!
+  membershipId: ID!
+  name: String!
+  description: String
+  plan: MembershipPlan
+  benefits: [String!]
+  active: Boolean!
+}
+
+"""
+Billing plan associated with a membership tier.
+"""
+type MembershipPlan {
+  id: ID!
+  tierId: ID!
+  intervalUnit: String!
+  intervalCount: Int!
+  priceInCents: Int!
+  currency: Currency!
+  trialPeriodDays: Int
+}
+
+# ─── Post Domain ──────────────────────────────────────────────────────────────
+
+"""
+A creator-published content post delivered to subscribers or the public.
+"""
+type Post {
+  id: ID!
+  creatorId: ID!
+  title: String!
+  type: PostType!
+  details: PostDetails
+  publishedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+Extended metadata for a post.
+"""
+type PostDetails {
+  id: ID!
+  postId: ID!
+  bodyHtml: String
+  bodyText: String
+  audienceType: String
+  audienceProductId: ID
+  emailSent: Boolean
+  viewsCount: Int
+  clicksCount: Int
+  scheduledAt: DateTime
+}
+
+# ─── Sales and Financial Domain ───────────────────────────────────────────────
+
+"""
+A record of product revenue from a completed purchase.
+"""
+type Sale {
+  id: ID!
+  productId: ID!
+  purchaseId: ID!
+  email: String!
+  amount: SaleAmount!
+  details: SaleDetails
+  refund: Refund
+  createdAt: DateTime!
+}
+
+"""
+Breakdown of a sale including price, taxes, fees, and affiliate commission.
+"""
+type SaleDetails {
+  id: ID!
+  saleId: ID!
+  ipAddress: String
+  country: String
+  countryIsoCode: String
+  referrer: String
+  isGifted: Boolean
+  giftSenderEmail: String
+  affiliateId: ID
+  affiliateCredit: Float
+  taxAmount: Float
+  vatAmount: Float
+  customFields: JSON
+  variantOptionId: ID
+  quantity: Int
+  isRecurringBilling: Boolean
+  subscriptionId: ID
+  isChargebacked: Boolean
+  disputeWon: Boolean
+}
+
+"""
+Monetary value breakdown of a sale.
+"""
+type SaleAmount {
+  gross: Float!
+  net: Float!
+  gumroadFee: Float!
+  affiliateFee: Float
+  taxAmount: Float
+  vatAmount: Float
+  currency: Currency!
+  formattedGross: String
+  formattedNet: String
+}
+
+"""
+A reversal of a purchase transaction.
+"""
+type Refund {
+  id: ID!
+  saleId: ID!
+  purchaseId: ID!
+  details: RefundDetails
+  createdAt: DateTime!
+}
+
+"""
+Extended data for a refund.
+"""
+type RefundDetails {
+  id: ID!
+  refundId: ID!
+  amountInCents: Int
+  currency: Currency
+  reason: String
+  refundedAt: DateTime
+  initiatedBy: String
+}
+
+"""
+A disbursement of earnings from Gumroad to the creator's bank account.
+"""
+type Payout {
+  id: ID!
+  creatorId: ID!
+  amount: Float!
+  currency: Currency!
+  details: PayoutDetails
+  createdAt: DateTime!
+}
+
+"""
+Extended data for a payout.
+"""
+type PayoutDetails {
+  id: ID!
+  payoutId: ID!
+  bankName: String
+  bankLast4: String
+  transactionReference: String
+  payoutDate: DateTime
+  status: String
+  failureReason: String
+}
+
+# ─── Creator and User Domain ──────────────────────────────────────────────────
+
+"""
+The authenticated Gumroad user account (seller/creator).
+"""
+type Creator {
+  id: ID!
+  name: String!
+  email: String!
+  details: CreatorDetails
+  products: [Product!]
+  posts: [Post!]
+  followers: [Follower!]
+  payouts: [Payout!]
+  webhooks: [Webhook!]
+  createdAt: DateTime!
+}
+
+"""
+Extended profile data for a creator.
+"""
+type CreatorDetails {
+  id: ID!
+  creatorId: ID!
+  bio: String
+  twitterHandle: String
+  facebookProfileUrl: URL
+  profileUrl: URL
+  displayName: String
+  currency: Currency
+  payoutThreshold: Float
+  payoutMethod: String
+  balance: Float
+  salesCount: Int
+  followersCount: Int
+}
+
+# ─── Customer and Follower Domain ────────────────────────────────────────────
+
+"""
+A buyer who has purchased one or more products from a creator.
+"""
+type Customer {
+  id: ID!
+  email: String!
+  details: CustomerDetails
+  purchases: [Purchase!]
+  createdAt: DateTime!
+}
+
+"""
+Extended data for a customer.
+"""
+type CustomerDetails {
+  id: ID!
+  customerId: ID!
+  name: String
+  country: String
+  totalSpent: Float
+  purchaseCount: Int
+  firstPurchaseAt: DateTime
+  lastPurchaseAt: DateTime
+}
+
+"""
+A user who follows a creator without necessarily having made a purchase.
+"""
+type Follower {
+  id: ID!
+  creatorId: ID!
+  email: String!
+  details: FollowerDetails
+  followedAt: DateTime!
+}
+
+"""
+Extended data for a follower.
+"""
+type FollowerDetails {
+  id: ID!
+  followerId: ID!
+  name: String
+  country: String
+  isEmailVerified: Boolean
+}
+
+# ─── Auth and Webhook Domain ──────────────────────────────────────────────────
+
+"""
+An OAuth application credential used to authenticate API requests.
+"""
+type APIKey {
+  id: ID!
+  creatorId: ID!
+  name: String!
+  clientId: String!
+  scopes: [String!]
+  createdAt: DateTime!
+}
+
+"""
+An OAuth 2.0 access or refresh token.
+"""
+type Token {
+  id: ID!
+  apiKeyId: ID!
+  accessToken: String!
+  refreshToken: String
+  tokenType: String!
+  scope: String
+  expiresIn: Int
+  createdAt: DateTime!
+}
+
+"""
+A resource subscription that delivers event notifications to a URL.
+"""
+type Webhook {
+  id: ID!
+  creatorId: ID!
+  resourceName: String!
+  postUrl: URL!
+  events: [WebhookEvent!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+An event payload delivered to a registered webhook endpoint.
+"""
+type WebhookEvent {
+  id: ID!
+  webhookId: ID!
+  resourceName: String!
+  eventType: String!
+  payload: JSON!
+  deliveredAt: DateTime
+  statusCode: Int
+  success: Boolean!
+  attemptCount: Int!
+}
+
+# ─── Queries ──────────────────────────────────────────────────────────────────
+
+type Query {
+  """Retrieve the authenticated creator's account."""
+  user: Creator
+
+  """List all products for the authenticated creator."""
+  products: [Product!]!
+
+  """Retrieve a single product by ID."""
+  product(id: ID!): Product
+
+  """List all sales, optionally filtered by product or date range."""
+  sales(
+    productId: ID
+    before: DateTime
+    after: DateTime
+    email: String
+    page: Int
+  ): [Sale!]!
+
+  """Retrieve a single sale by ID."""
+  sale(id: ID!): Sale
+
+  """List subscribers for a membership product."""
+  subscribers(productId: ID!, email: String): [Subscriber!]!
+
+  """Retrieve a single subscriber by ID."""
+  subscriber(id: ID!): Subscriber
+
+  """List offer codes for a product."""
+  offerCodes(productId: ID!): [OfferCode!]!
+
+  """Retrieve a single offer code by ID."""
+  offerCode(id: ID!, productId: ID!): OfferCode
+
+  """List custom fields for a product."""
+  customFields(linkId: ID!): [CustomField!]!
+
+  """Retrieve and verify a license by key."""
+  license(productPermalink: String!, licenseKey: String!): License
+
+  """List all registered webhooks."""
+  resourceSubscriptions: [Webhook!]!
+
+  """List followers for the authenticated creator."""
+  followers: [Follower!]!
+
+  """List customers for the authenticated creator."""
+  customers: [Customer!]!
+
+  """List posts for the authenticated creator."""
+  posts: [Post!]!
+
+  """List variants for a product."""
+  variants(productId: ID!): [Variant!]!
+}
+
+# ─── Mutations ────────────────────────────────────────────────────────────────
+
+input CreateProductInput {
+  name: String!
+  price: Float!
+  description: String
+  previewUrl: URL
+  customPermalink: String
+  requireShipping: Boolean
+  customReceipt: String
+  customSummary: String
+  customRedirectUrl: URL
+  allowedQuantity: Int
+  tags: [String!]
+  publishedAt: DateTime
+}
+
+input UpdateProductInput {
+  name: String
+  price: Float
+  description: String
+  previewUrl: URL
+  requireShipping: Boolean
+  customReceipt: String
+  customSummary: String
+  customRedirectUrl: URL
+  allowedQuantity: Int
+  tags: [String!]
+  published: Boolean
+}
+
+input CreateVariantInput {
+  productId: ID!
+  title: String!
+  options: [CreateVariantOptionInput!]!
+}
+
+input CreateVariantOptionInput {
+  name: String!
+  priceDifferenceInCents: Int
+  maxPurchaseCount: Int
+  url: URL
+}
+
+input UpdateVariantInput {
+  title: String
+}
+
+input CreateOfferCodeInput {
+  productId: ID!
+  name: String!
+  amount: Float!
+  offerType: DiscountType!
+  maxPurchaseCount: Int
+  universal: Boolean
+  currencyType: Currency
+  validFrom: DateTime
+  validTo: DateTime
+}
+
+input UpdateOfferCodeInput {
+  maxPurchaseCount: Int
+}
+
+input CreateCustomFieldInput {
+  linkId: ID!
+  name: String!
+  required: Boolean
+  fieldType: CustomFieldType
+}
+
+input UpdateCustomFieldInput {
+  name: String
+  required: Boolean
+}
+
+input CreateWebhookInput {
+  resourceName: String!
+  postUrl: URL!
+}
+
+input UpdateWebhookInput {
+  resourceName: String
+  postUrl: URL
+}
+
+type Mutation {
+  """Create a new product."""
+  createProduct(input: CreateProductInput!): Product!
+
+  """Update an existing product."""
+  updateProduct(id: ID!, input: UpdateProductInput!): Product!
+
+  """Delete a product."""
+  deleteProduct(id: ID!): Boolean!
+
+  """Enable (publish) a product."""
+  enableProduct(id: ID!): Product!
+
+  """Disable (unpublish) a product."""
+  disableProduct(id: ID!): Product!
+
+  """Add a variant to a product."""
+  createVariant(input: CreateVariantInput!): Variant!
+
+  """Update a product variant."""
+  updateVariant(id: ID!, productId: ID!, input: UpdateVariantInput!): Variant!
+
+  """Delete a product variant."""
+  deleteVariant(id: ID!, productId: ID!): Boolean!
+
+  """Create a new offer code."""
+  createOfferCode(input: CreateOfferCodeInput!): OfferCode!
+
+  """Update an offer code."""
+  updateOfferCode(id: ID!, productId: ID!, input: UpdateOfferCodeInput!): OfferCode!
+
+  """Delete an offer code."""
+  deleteOfferCode(id: ID!, productId: ID!): Boolean!
+
+  """Add a custom field to a product."""
+  createCustomField(input: CreateCustomFieldInput!): CustomField!
+
+  """Update a custom field."""
+  updateCustomField(id: ID!, linkId: ID!, input: UpdateCustomFieldInput!): CustomField!
+
+  """Delete a custom field."""
+  deleteCustomField(id: ID!, linkId: ID!): Boolean!
+
+  """Enable a license key."""
+  enableLicense(id: ID!, productPermalink: String!): License!
+
+  """Disable a license key."""
+  disableLicense(id: ID!, productPermalink: String!): License!
+
+  """Decrement the activation count for a license."""
+  decrementLicenseUsesCount(id: ID!, productPermalink: String!): License!
+
+  """Unsubscribe a subscriber."""
+  subscriberUnsubscribe(id: ID!): Subscriber!
+
+  """Issue a refund for a sale."""
+  refundSale(id: ID!, amountCents: Int, applyToAll: Boolean): Sale!
+
+  """Register a new resource subscription (webhook)."""
+  createWebhook(input: CreateWebhookInput!): Webhook!
+
+  """Update a webhook URL or resource name."""
+  updateWebhook(id: ID!, input: UpdateWebhookInput!): Webhook!
+
+  """Remove a webhook registration."""
+  deleteWebhook(id: ID!): Boolean!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

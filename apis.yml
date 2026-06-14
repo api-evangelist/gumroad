@@ -1,76 +1,73 @@
 aid: gumroad
 name: Gumroad
-description: >-
-  Gumroad is a digital commerce platform that lets creators sell e-books,
-  courses, software, memberships, music, and physical goods directly to their
-  audience without needing a storefront, with built-in checkout, licensing,
-  affiliate management, and analytics. The Gumroad v2 REST API provides
-  programmatic access to products, sales, subscribers, offer codes, license
-  keys, customers, and the authenticated user account. Authentication uses
-  OAuth 2.0 access tokens passed in the Authorization header.
+description: Gumroad is a digital commerce platform that lets creators sell e-books,
+  courses, software, memberships, music, and physical goods directly to their audience
+  without needing a storefront, with built-in checkout, licensing, affiliate management,
+  and analytics. The Gumroad v2 REST API provides programmatic access to products,
+  sales, subscribers, offer codes, license keys, customers, and the authenticated
+  user account. Authentication uses OAuth 2.0 access tokens passed in the Authorization
+  header.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Digital Commerce
-  - Creator Economy
-  - Digital Products
-  - Memberships
-  - License Keys
-  - Affiliates
-  - E-commerce
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/gumroad/refs/heads/main/apis.yml
+- Digital Commerce
+- Creator Economy
+- Digital Products
+- Memberships
+- License Keys
+- Affiliates
+- E-commerce
+url: https://raw.githubusercontent.com/api-evangelist/gumroad/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
-  - aid: gumroad:v2-api
-    name: Gumroad v2 API
-    description: >-
-      REST API for managing products, variants, offer codes, custom fields,
-      sales, subscribers, license keys, resource subscriptions (webhooks), and
-      the authenticated user account on Gumroad. Authentication is via OAuth
-      2.0 access tokens obtained at https://gumroad.com/oauth/applications and
-      exchanged at https://api.gumroad.com/oauth/token.
-    humanURL: https://app.gumroad.com/api
-    baseURL: https://api.gumroad.com/v2
-    tags:
-      - Products
-      - Sales
-      - Subscribers
-      - License Keys
-      - Offer Codes
-      - Webhooks
-      - OAuth 2.0
-    properties:
-      - type: Documentation
-        url: https://app.gumroad.com/api
-      - type: Create an Application
-        url: https://gumroad.com/help/article/280-create-application-api
-      - type: OAuth Applications
-        url: https://gumroad.com/oauth/applications
-      - type: AsyncAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/gumroad/refs/heads/main/asyncapi.yml
-common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/gumroad
-  - type: Website
-    url: https://gumroad.com
+- aid: gumroad:v2-api
+  name: Gumroad v2 API
+  description: REST API for managing products, variants, offer codes, custom fields,
+    sales, subscribers, license keys, resource subscriptions (webhooks), and the authenticated
+    user account on Gumroad. Authentication is via OAuth 2.0 access tokens obtained
+    at https://gumroad.com/oauth/applications and exchanged at https://api.gumroad.com/oauth/token.
+  humanURL: https://app.gumroad.com/api
+  baseURL: https://api.gumroad.com/v2
+  tags:
+  - Products
+  - Sales
+  - Subscribers
+  - License Keys
+  - Offer Codes
+  - Webhooks
+  - OAuth 2.0
+  properties:
   - type: Documentation
     url: https://app.gumroad.com/api
-  - type: Help Center
-    url: https://gumroad.com/help
-  - type: Pricing
-    url: https://gumroad.com/pricing
-  - type: SignUp
-    url: https://gumroad.com/signup
-  - type: Discover
-    url: https://gumroad.com/discover
-  - type: Support
-    url: https://gumroad.com/help
-  - type: GitHubOrganization
-    url: https://github.com/gumroad
+  - type: Create an Application
+    url: https://gumroad.com/help/article/280-create-application-api
+  - type: OAuth Applications
+    url: https://gumroad.com/oauth/applications
+  - type: AsyncAPI
+    url: https://raw.githubusercontent.com/api-evangelist/gumroad/refs/heads/main/asyncapi.yml
+  - url: graphql/gumroad-graphql.md
+    type: GraphQL
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/gumroad
+- type: Website
+  url: https://gumroad.com
+- type: Documentation
+  url: https://app.gumroad.com/api
+- type: Help Center
+  url: https://gumroad.com/help
+- type: Pricing
+  url: https://gumroad.com/pricing
+- type: SignUp
+  url: https://gumroad.com/signup
+- type: Discover
+  url: https://gumroad.com/discover
+- type: Support
+  url: https://gumroad.com/help
+- type: GitHubOrganization
+  url: https://github.com/gumroad
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
