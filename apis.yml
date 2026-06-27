@@ -60,7 +60,7 @@ common:
   url: https://gumroad.com/help
 - type: Pricing
   url: https://gumroad.com/pricing
-- type: SignUp
+- type: Signup
   url: https://gumroad.com/signup
 - type: Discover
   url: https://gumroad.com/discover
