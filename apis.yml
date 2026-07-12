@@ -50,6 +50,8 @@ apis:
   - url: graphql/gumroad-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/gumroad-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/gumroad
 - type: Website
