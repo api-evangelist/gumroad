@@ -8,7 +8,18 @@ description: Gumroad is a digital commerce platform that lets creators sell e-bo
   user account. Authentication uses OAuth 2.0 access tokens passed in the Authorization
   header.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/gumroad.png
 tags:
 - Digital Commerce
 - Creator Economy
