@@ -27,6 +27,14 @@ tags:
 - Memberships
 - License Keys
 - Affiliates
+- E-Commerce
+tags_raw:
+- Digital Commerce
+- Creator Economy
+- Digital Products
+- Memberships
+- License Keys
+- Affiliates
 - E-commerce
 url: https://raw.githubusercontent.com/api-evangelist/gumroad/refs/heads/main/apis.yml
 created: '2026-05-11'
@@ -42,6 +50,14 @@ apis:
   humanURL: https://app.gumroad.com/api
   baseURL: https://api.gumroad.com/v2
   tags:
+  - Product
+  - Sales
+  - Subscribers
+  - License Keys
+  - Offer Codes
+  - Webhook
+  - Authentication
+  tags_raw:
   - Products
   - Sales
   - Subscribers
