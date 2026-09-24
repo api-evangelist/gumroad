@@ -85,8 +85,6 @@ apis:
     url: https://gumroad.com/oauth/applications
   - type: AsyncAPI
     url: https://raw.githubusercontent.com/api-evangelist/gumroad/refs/heads/main/asyncapi.yml
-  - url: graphql/gumroad-graphql.md
-    type: GraphQL
 common:
 - type: DomainSecurity
   url: security/gumroad-domain-security.yml
