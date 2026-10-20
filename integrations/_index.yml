@@ -15,6 +15,7 @@
   evidence: https://zapier.com/apps/gumroad/integrations/mailchimp/54/send-new-gumroad-customers-to-mailchimp
   template: https://zapier.com/apps/gumroad/integrations/mailchimp/54/send-new-gumroad-customers-to-mailchimp
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-log-gumroad-sales-in-a-google-spreadsheet
@@ -29,6 +30,7 @@
   evidence: https://zapier.com/apps/google-sheets/integrations/gumroad/100/log-gumroad-sales-in-a-google-spreadsheet
   template: https://zapier.com/apps/google-sheets/integrations/gumroad/100/log-gumroad-sales-in-a-google-spreadsheet
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-add-new-gumroad-customers-to-activecampaign-lists
@@ -43,6 +45,7 @@
   evidence: https://zapier.com/apps/activecampaign/integrations/gumroad/4591/add-new-gumroad-customers-to-activecampaign-lists
   template: https://zapier.com/apps/activecampaign/integrations/gumroad/4591/add-new-gumroad-customers-to-activecampaign-lists
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-add-new-gumroad-customers-as-mailerlite-subscribers
@@ -57,6 +60,7 @@
   evidence: https://zapier.com/apps/gumroad/integrations/mailerlite-classic/258512/add-new-gumroad-customers-as-mailerlite-subscribers
   template: https://zapier.com/apps/gumroad/integrations/mailerlite-classic/258512/add-new-gumroad-customers-as-mailerlite-subscribers
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-add-new-gumroad-customers-to-aweber
@@ -71,6 +75,7 @@
   evidence: https://zapier.com/apps/aweber/integrations/gumroad/96/add-new-gumroad-customers-to-aweber
   template: https://zapier.com/apps/aweber/integrations/gumroad/96/add-new-gumroad-customers-to-aweber
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-send-gumroad-customers-to-mailerlite
@@ -85,6 +90,7 @@
   evidence: https://zapier.com/apps/gumroad/integrations/mailerlite-classic/1223/send-gumroad-customers-to-mailerlite
   template: https://zapier.com/apps/gumroad/integrations/mailerlite-classic/1223/send-gumroad-customers-to-mailerlite
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-create-mailerlite-subscribers-from-new-gumroad-sales
@@ -99,6 +105,7 @@
   evidence: https://zapier.com/apps/gumroad/integrations/mailerlite/1204117/create-mailerlite-subscribers-from-new-gumroad-sales
   template: https://zapier.com/apps/gumroad/integrations/mailerlite/1204117/create-mailerlite-subscribers-from-new-gumroad-sales
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-post-new-gumroad-sales-to-slack
@@ -113,6 +120,7 @@
   evidence: https://zapier.com/apps/gumroad/integrations/slack/1471/post-new-gumroad-sales-to-slack
   template: https://zapier.com/apps/gumroad/integrations/slack/1471/post-new-gumroad-sales-to-slack
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-create-new-beehiiv-subscribers-from-new-gumroad-sales
@@ -127,6 +135,7 @@
   evidence: https://zapier.com/apps/beehiiv/integrations/gumroad/1733509/create-new-beehiiv-subscribers-from-new-gumroad-sales
   template: https://zapier.com/apps/beehiiv/integrations/gumroad/1733509/create-new-beehiiv-subscribers-from-new-gumroad-sales
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-add-tags-to-kit-subscribers-for-new-sales-in-gumroad
@@ -141,254 +150,7 @@
   evidence: https://zapier.com/apps/gumroad/integrations/kit/189308/add-tags-to-kit-subscribers-for-new-sales-in-gumroad
   template: https://zapier.com/apps/gumroad/integrations/kit/189308/add-tags-to-kit-subscribers-for-new-sales-in-gumroad
   source: template
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-airtable
-  label: Airtable
-  partner: airtable
-  partner_name: Airtable
-  category: Databases
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/airtable
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-gmail
-  label: Gmail
-  partner: gmail
-  partner_name: Gmail
-  category: Email
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/gmail
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-flodesk
-  label: Flodesk
-  partner_name: Flodesk
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/flodesk
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-notion
-  label: Notion
-  partner: notion
-  partner_name: Notion
-  category: Task Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/notion
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-brevo
-  label: Brevo
-  partner: brevo
-  partner_name: Brevo
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/brevo
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-hubspot
-  label: HubSpot
-  partner: hubspot
-  partner_name: HubSpot
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/hubspot
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-pinterest
-  label: Pinterest
-  partner: pinterest
-  partner_name: Pinterest
-  category: Social Media Accounts
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/pinterest
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-teachable
-  label: Teachable
-  partner: teachable
-  partner_name: Teachable
-  category: Online Courses
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/teachable
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-getresponse
-  label: GetResponse
-  partner: getresponse
-  partner_name: GetResponse
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/getresponse
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-discord
-  label: Discord
-  partner: discord
-  partner_name: Discord
-  category: Team Chat
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/discord
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-systeme-io
-  label: systeme.io
-  partner_name: systeme.io
-  category: Marketing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/systemeio
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-facebook-conversions
-  label: Facebook Conversions
-  partner_name: Facebook Conversions
-  category: Ads & Conversion
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/facebook-conversions
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-kajabi
-  label: Kajabi
-  partner: kajabi
-  partner_name: Kajabi
-  category: eCommerce
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/kajabi
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-google-drive
-  label: Google Drive
-  partner: google-drive
-  partner_name: Google Drive
-  category: File Management & Storage
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/google-drive
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-google-ads
-  label: Google Ads
-  partner: google-ads
-  partner_name: Google Ads
-  category: Ads & Conversion
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/google-ads
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-klaviyo
-  label: Klaviyo
-  partner: klaviyo
-  partner_name: Klaviyo
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/klaviyo
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-skool
-  label: Skool
-  partner: skool
-  partner_name: Skool
-  category: Education
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/skool
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-circle
-  label: Circle
-  partner: circle-community
-  partner_name: Circle
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/circle
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-shipstation
-  label: ShipStation
-  partner: shipstation
-  partner_name: ShipStation
-  category: eCommerce
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/shipstation
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-wishlist-member
-  label: WishList Member
-  partner_name: WishList Member
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/wishlist-member
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: gumroad-woocommerce
-  label: WooCommerce
-  partner: woocommerce
-  partner_name: WooCommerce
-  category: eCommerce
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/gumroad/integrations/woocommerce
-  source: edge
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: gumroad-zapier
@@ -466,4 +228,274 @@
     sources: true
     builder: Pipedream repo (component)
   status: not-a-workflow
+  arazzo: null
+- slug: gumroad-airtable
+  label: Airtable
+  partner: airtable
+  partner_name: Airtable
+  category: Databases
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/airtable
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-gmail
+  label: Gmail
+  partner: gmail
+  partner_name: Gmail
+  category: Email
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/gmail
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-flodesk
+  label: Flodesk
+  partner_name: Flodesk
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/flodesk
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-notion
+  label: Notion
+  partner: notion
+  partner_name: Notion
+  category: Task Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/notion
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-brevo
+  label: Brevo
+  partner: brevo
+  partner_name: Brevo
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/brevo
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-hubspot
+  label: HubSpot
+  partner: hubspot
+  partner_name: HubSpot
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/hubspot
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-pinterest
+  label: Pinterest
+  partner: pinterest
+  partner_name: Pinterest
+  category: Social Media Accounts
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/pinterest
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-teachable
+  label: Teachable
+  partner: teachable
+  partner_name: Teachable
+  category: Online Courses
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/teachable
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-getresponse
+  label: GetResponse
+  partner: getresponse
+  partner_name: GetResponse
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/getresponse
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-discord
+  label: Discord
+  partner: discord
+  partner_name: Discord
+  category: Team Chat
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/discord
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-systeme-io
+  label: systeme.io
+  partner_name: systeme.io
+  category: Marketing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/systemeio
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-klaviyo
+  label: Klaviyo
+  partner: klaviyo
+  partner_name: Klaviyo
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/klaviyo
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-facebook-conversions
+  label: Facebook Conversions
+  partner: facebook
+  partner_name: Facebook Conversions
+  category: Ads & Conversion
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/facebook-conversions
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-kajabi
+  label: Kajabi
+  partner: kajabi
+  partner_name: Kajabi
+  category: eCommerce
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/kajabi
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-google-drive
+  label: Google Drive
+  partner: google-drive
+  partner_name: Google Drive
+  category: File Management & Storage
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/google-drive
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-google-ads
+  label: Google Ads
+  partner: google-ads
+  partner_name: Google Ads
+  category: Ads & Conversion
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/google-ads
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-skool
+  label: Skool
+  partner: skool
+  partner_name: Skool
+  category: Education
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/skool
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-circle
+  label: Circle
+  partner: circle-community
+  partner_name: Circle
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/circle
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-shipstation
+  label: ShipStation
+  partner: shipstation
+  partner_name: ShipStation
+  category: eCommerce
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/shipstation
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-wishlist-member
+  label: WishList Member
+  partner_name: WishList Member
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/wishlist-member
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: gumroad-woocommerce
+  label: WooCommerce
+  partner: woocommerce
+  partner_name: WooCommerce
+  category: eCommerce
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/gumroad/integrations/woocommerce
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
   arazzo: null
